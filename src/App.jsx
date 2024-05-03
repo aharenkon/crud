@@ -1,35 +1,82 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from "react";
+import "./App.css";
+import AddNote from "./components/AddNote";
+import Notes from "./components/Notes";
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [state, setStates] = useState([]);
+  
+  const [update, setUpdate] = useState();
+
+  function loadData(){
+    setTimeout(() => {
+      fetch("http://localhost:7070/notes")
+        .then((response) =>{
+          return response.json();
+        })
+        .then((data) =>{
+          setStates(data)
+        });
+    }, 100);
+  }
+
+  useEffect(loadData, []); // componentDidMount
+
+   const handleChange = (event) => {
+    console.log(event);
+    setUpdate({content: event.target.value });
+    console.log("value:", update);
+   }
+   function saveData(){
+    let data = JSON.stringify(update);
+    console.log(data);
+      fetch("http://localhost:7070/notes", {
+        method: "POST",
+        body: data,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((res) => res.data)
+        .then((res) => console.log(res));
+      loadData();
+    }  
+   const onSubmit = (event) => {
+     event.preventDefault();
+     console.log(state, event, update);
+     console.log(state);
+
+     saveData();
+   };
+
+
+const deleteNote = (id) => {
+  console.log(id);
+   fetch("http://localhost:7070/notes/"+id, {
+     method: "DELETE",
+     headers: {
+       "Content-Type": "application/json",
+     },
+   })
+     .then((res) => res.data)
+     .then((res) => console.log(res));
+   loadData();
+};
+   useEffect(deleteNote, []);
+console.log(state);
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="App">
+      <Notes
+        notes={state}
+        onClick={(id) => deleteNote(id)}
+      />
+      <div className="add-note">
+        <AddNote onSubmit={onSubmit} handleChange={handleChange} />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
