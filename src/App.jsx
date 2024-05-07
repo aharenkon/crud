@@ -11,7 +11,7 @@ function App() {
 
   function loadData() {
     setTimeout(() => {
-      fetch("http://crudback.axacode.ru:10003/notes")
+      fetch("https://crudback.axacode.ru:10003/notes")
         .then((response) => {
           return response.json();
         })
@@ -31,7 +31,7 @@ function App() {
   function saveData() {
     let data = JSON.stringify(update);
     console.log(data);
-    fetch("http://crudback.axacode.ru:10003/notes", {
+    fetch("https://crudback.axacode.ru:10003/notes", {
       method: "POST",
       body: data,
       headers: {
@@ -52,7 +52,7 @@ function App() {
 
   const deleteNote = (id) => {
     console.log(id);
-    fetch("http://crudback.axacode.ru:10003/notes/" + id, {
+    fetch("https://crudback.axacode.ru:10003/notes/" + id, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
