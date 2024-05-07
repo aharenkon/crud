@@ -18,7 +18,7 @@ function App() {
         .then((data) => {
           setStates(data);
         });
-    }, 100);
+    }, 2000);
   }
 
   useEffect(loadData, []); // componentDidMount
