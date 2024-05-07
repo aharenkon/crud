@@ -41,7 +41,6 @@ function App() {
     })
       .then((res) => res.data)
       .then((res) => console.log(res));
-    loadData();
   }
   const onSubmit = (event) => {
     event.preventDefault();
@@ -61,7 +60,6 @@ function App() {
     })
       .then((res) => res.data)
       .then((res) => console.log(res));
-    loadData();
   };
   useEffect(deleteNote, []);
   console.log(state);
@@ -76,11 +74,11 @@ function App() {
     const interval = setInterval(() => {
       setTime(Date.now());
       loadData();
-    }, 2100);
+    }, 100);
     return () => {
       clearInterval(interval);
     };
-  }, []);
+  }, [state]);
 
   return (
     <div className="header">
