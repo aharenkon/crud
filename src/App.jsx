@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./index.css";
 import "./App.css";
+import moment from "moment-timezone";
 import AddNote from "./components/AddNote";
 import Notes from "./components/Notes";
 
@@ -64,6 +65,20 @@ function App() {
   };
   useEffect(deleteNote, []);
   console.log(state);
+
+  //******************************************** */
+
+  const clock = moment().format("LTS").toString(); //new Date().toLocaleTimeString();
+  console.log(clock);
+  const [time, setTime] = useState(Date.now());
+  console.log(time);
+  useEffect(() => {
+    const interval = setInterval(() => setTime(Date.now()),
+    loadData(), 2100);
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
 
   return (
     <div className="header">
