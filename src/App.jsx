@@ -11,7 +11,7 @@ function App() {
   const [update, setUpdate] = useState();
 
   function loadData() {
- //   setTimeout(() => {
+    setTimeout(() => {
       fetch("https://crudback.axacode.ru/notes")
         .then((response) => {
           return response.json();
@@ -19,7 +19,7 @@ function App() {
         .then((data) => {
           setStates(data);
         });
- //   }, 2000);
+    }, 2000);
   }
 
   useEffect(loadData, []); // componentDidMount
@@ -73,8 +73,10 @@ function App() {
   const [time, setTime] = useState(Date.now());
   console.log(time);
   useEffect(() => {
-    const interval = setInterval(() => setTime(Date.now()),
-    loadData(), 2100);
+    const interval = setInterval(() => {
+      setTime(Date.now());
+      loadData();
+    }, 2100);
     return () => {
       clearInterval(interval);
     };
