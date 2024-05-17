@@ -89,6 +89,8 @@ function App() {
       <Box sx={{ my: 4 }}>
         <Typography variant="h4" component="h1" sx={{ mb: 2 }}>
           Задача CRUD
+        </Typography>
+        <Typography variant="body1" gutterBottom>
       <div className="note">
         <Notes
           className="text"
@@ -99,8 +101,7 @@ function App() {
       <div className="add-note">
         <AddNote onSubmit={onSubmit} handleChange={handleChange} />
       </div>
-        </Typography>
-
+</Typography>
         <Copyright />
       </Box>
     </Container>

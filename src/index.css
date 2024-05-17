@@ -1,5 +1,5 @@
 body {
-  font-family: "Mina", sans-serif;
+  
 }
 
 .header {
@@ -14,7 +14,8 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content:space-between;
+  align-items:baseline;
   width: 320px;
   margin: 10px auto;
   padding: 10px;
@@ -23,7 +24,11 @@ body {
 
 .text {
   position: relative;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items:baseline;
+  flex-wrap: wrap;
   margin: 10px auto;
   padding: 20px;
   width: 460px;
@@ -33,9 +38,9 @@ body {
 }
 
 .close {
-  position: absolute;
-  display: block;
-  right: 0;
+  position: relative;
+  display: inline-block;
+  text-align: right;
   font-size: 80%;
   color: #f80c0c;
 }
