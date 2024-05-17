@@ -4,6 +4,10 @@ import "./App.css";
 import moment from "moment-timezone";
 import AddNote from "./components/AddNote";
 import Notes from "./components/Notes";
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import Copyright from "./components/Copyright";
 
 function App() {
   const [state, setStates] = useState([]);
@@ -81,7 +85,10 @@ function App() {
   }, [state]);
 
   return (
-    <div className="header">
+    <Container maxWidth="sm">
+      <Box sx={{ my: 4 }}>
+        <Typography variant="h4" component="h1" sx={{ mb: 2 }}>
+          Задача CRUD
       <div className="note">
         <Notes
           className="text"
@@ -92,7 +99,11 @@ function App() {
       <div className="add-note">
         <AddNote onSubmit={onSubmit} handleChange={handleChange} />
       </div>
-    </div>
+        </Typography>
+
+        <Copyright />
+      </Box>
+    </Container>
   );
 }
 

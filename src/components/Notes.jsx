@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import "../index.css";
-import Button from "./Button";
+import ButtonUsage from "./ButtonUsage";
 export default function Notes({ notes, onClick,  }) {
   console.log(typeof notes);
   
@@ -9,7 +9,7 @@ export default function Notes({ notes, onClick,  }) {
       {[...notes].map((note, index) => (
         <div key={index} className="text">
           {note.content}{" "}
-          <Button onClick={(id) => onClick(id)} id={note.id} />
+          <ButtonUsage className="close" onClick={(id) => onClick(id)} id={note.id} />
         </div>
       ))}
     </>

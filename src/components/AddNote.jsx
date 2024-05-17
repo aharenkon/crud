@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 // eslint-disable-next-line react/prop-types
+import Button from "@mui/material/Button";
 export default function AddNote({onSubmit, handleChange}){
     return (
       <div className="add-note">
@@ -9,7 +10,7 @@ export default function AddNote({onSubmit, handleChange}){
           placeholder="Enter notes: "
           onBlur={handleChange}
         ></textarea>
-        <button type="submit">OK</button>
+        <Button variant="contained" type="submit">OK</Button>
         </form>
       </div>
     );
