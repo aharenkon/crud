@@ -16,7 +16,7 @@ function App() {
 
   function loadData() {
     setTimeout(() => {
-      fetch("https://crudback.axareact.ru/notes")
+      fetch("https://https://crudback-g12g.onrender.com/notes")
         .then((response) => {
           return response.json();
         })
@@ -36,7 +36,7 @@ function App() {
   function saveData() {
     let data = JSON.stringify(update);
     console.log(data);
-    fetch("https://crudback.axareact.ru/notes", {
+    fetch("https://https://crudback-g12g.onrender.com/notes", {
       method: "POST",
       body: data,
       headers: {
@@ -56,7 +56,7 @@ function App() {
 
   const deleteNote = (id) => {
     console.log(id);
-    fetch("https://crudback.axareact.ru/notes/" + id, {
+    fetch("https://https://crudback-g12g.onrender.com/notes/" + id, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
