@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import "../index.css";
 import Button from "@mui/material/Button";
 export default function ButtonUsage({ onClick, id }) {

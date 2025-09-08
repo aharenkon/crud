@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import "../index.css";
 import ButtonUsage from "./ButtonUsage";
 export default function Notes({ notes, onClick,  }) {

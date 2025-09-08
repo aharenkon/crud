@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-// eslint-disable-next-line react/prop-types
 import Button from "@mui/material/Button";
 export default function AddNote({onSubmit, handleChange}){
     return (

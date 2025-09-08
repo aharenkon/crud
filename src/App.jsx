@@ -26,7 +26,7 @@ function App() {
     }, 2000);
   }
 
-  useEffect(loadData, []); // componentDidMount
+  useEffect(loadData, []);
 
   const handleChange = (event) => {
     console.log(event);
@@ -68,9 +68,8 @@ function App() {
   useEffect(deleteNote, []);
   console.log(state);
 
-  //******************************************** */
-
-  const clock = moment().format("LTS").toString(); //new Date().toLocaleTimeString();
+  
+  const clock = moment().format("LTS").toString();
   console.log(clock);
   const [time, setTime] = useState(Date.now());
   console.log(time);
