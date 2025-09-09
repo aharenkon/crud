@@ -16,7 +16,7 @@ function App() {
 
   function loadData() {
     setTimeout(() => {
-      fetch("http://axareact.ru/notes")
+      fetch("https://axareact.ru/notes")
         .then((response) => {
           return response.json();
         })
@@ -36,7 +36,7 @@ function App() {
   function saveData() {
     let data = JSON.stringify(update);
     console.log(data);
-    fetch("http://axareact.ru/notes", {
+    fetch("https://axareact.ru/notes", {
       method: "POST",
       body: data,
       headers: {
@@ -56,7 +56,7 @@ function App() {
 
   const deleteNote = (id) => {
     console.log(id);
-    fetch("http://axareact.ru/notes/" + id, {
+    fetch("https://axareact.ru/notes/" + id, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
